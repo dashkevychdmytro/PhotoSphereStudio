@@ -286,7 +286,7 @@ function write(url, lat, long, file) {
 }
 
 function read(callback) {
-    db.all(`SELECT * FROM points;`, function (err, data) {
+    db.all(`SELECT url, lat, long FROM points;`, function (err, data) {
         if (err) {
             console.log(err)
         } else {
