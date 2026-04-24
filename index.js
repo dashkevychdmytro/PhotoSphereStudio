@@ -292,7 +292,7 @@ function read(callback) {
         } else {
             callback(
                 data.map(row => {
-                    const id = row.url.split('data=!3m4!1e1!3m2!1s').pop();
+                    const id = row.url.split('data=!3m4!1e1!3m2!1s').pop().replace("!2e10","");
                     return [
                         id,
                         parseFloat(row.lat.toFixed(6)),
