@@ -54,8 +54,8 @@ getJSON("/list").then(data => {
 
     data.forEach(b => {
         //use CircleMarker when it starts lagging // , {icon: camIcon}
-        L.circleMarker([b.lat, b.long]).addTo(map).on('click', function(evt) {
-            window.open(b.url, '_blank');
+        L.circleMarker([b[1], b[2]]).addTo(map).on('click', function(evt) {
+            window.open("https://www.google.com/maps/@0,0,0a,90y,90t/data=!3m4!1e1!3m2!1s" + b[0], '_blank');
         });
     })
 }).catch(error => {

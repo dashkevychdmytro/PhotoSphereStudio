@@ -290,7 +290,16 @@ function read(callback) {
         if (err) {
             console.log(err)
         } else {
-            callback(data)
+            callback(
+                data.map(row => {
+                    const id = row.url.split('data=!3m4!1e1!3m2!1s').pop();
+                    return [
+                        id,
+                        parseFloat(row.lat.toFixed(6)),
+                        parseFloat(row.long.toFixed(6))
+                    ];
+                })
+            )
         }
     })
 }
